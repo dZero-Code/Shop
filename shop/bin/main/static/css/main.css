@@ -1,0 +1,13 @@
+/*------------------
+  Main-Slider
+---------------------*/
+.main-slider .hs-item {
+	position: relative;
+	height: 720px;
+}
+
+.set-bg{
+    background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top center;
+}

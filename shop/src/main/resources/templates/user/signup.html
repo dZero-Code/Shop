@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>쇼핑몰 이름</title>
+    <link rel="stylesheet" href="css/user.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header th:replace="/inc/header.html"></header>
+    <hr>
+
+    <!-- Login Section -->
+    <section class="singup-section">
+        <div class="container">
+            <div class="title">
+                <h4>회원가입</h4>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 signup-sub">
+	                <form action="/signup" method="post" id="frm">
+	                    <div class="col-lg-12 sub-section">
+                            <div class="form-group">
+                                <div class="col-lg-12">
+                                    <input type="text" id="userid" name="userid" placeholder="아이디 (영문자와 숫자 6~12자리)" autocomplete="off">
+                                </div>
+                                <div class="col-sm-12">
+                                    <p id="chkId" class="text-red">아이디를 입력해주세요.<p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="password" id="passwd" name="passwd" placeholder="비밀번호 (특수문자,문자,숫자 8~15자리)" autocomplete="off">
+                                </div>
+                                <div class="col-sm-12">
+                                    <p id="chkPw" class="text-red">비밀번호를 입력해주세요.<p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="password" id="repasswd" placeholder="비밀번호확인" autocomplete="off">
+                                </div>
+                                <div class="col-sm-12">
+                                    <p id="chkPw" class="text-red">비밀번호 확인을 입력해주세요.<p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="text" id="name" name="name" placeholder="이름" autocomplete="off">
+                                </div>
+                                <div class="col-sm-12">
+                                    <p id="chkPw" class="text-red">이름을 입력해주세요.<p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="text" id="birth" name="birth" placeholder="주민등록번호앞자리" autocomplete="off">
+                                </div>
+                                <div class="col-sm-12">
+                                    <p id="chkPw" class="text-red">주민등록번호앞자리를 입력해주세요.<p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="email" id="email" name="email" placeholder="이메일" autocomplete="off">
+                                </div>
+                                <div class="col-sm-12">
+                                    <p id="chkPw" class="text-red">이메일을 입력해주세요.<p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="text" id="phone" name="phone"  placeholder="휴대폰번호 ('-' 포함)" autocomplete="off">
+                                </div>
+                                <div class="col-sm-12">
+                                    <p id="chkPw" class="text-red">폰번호를 입력해주세요.<p>
+                                </div>
+                            </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <div class="col-sm-12">
+	                            <p id="loginResult" class="text-red">아이디와 비밀번호를 확인해주세요.<p>
+	                            <button type="button" id="signup" class="sb-btn">LOG-IN</button>
+	                        </div>
+	                    </div>
+                    </form>			
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--====== Javascripts & Jquery ======-->
+    <script src="js/user.js"></script>
+</body>
+</html>

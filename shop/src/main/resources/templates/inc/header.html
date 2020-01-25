@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>쇼핑몰 이름</title>
+
+    <!-- css -->
+    <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css}" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/assets/font-awesome/css/font-awesome.min.css}">
+	
+    <link rel="stylesheet" th:href="@{/css/base.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+</head>
+<body th:fragment="header">
+    <!-- Header Section -->
+    <header class="header-section">
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                <!-- Page Logo -->
+
+                    <!-- search Layer -->
+                    <div class="col-lg-4 header-mt">
+                        <form class="header-search-form">
+                            <input type="text" placeholder="Search on Product">
+                            <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                        </form>
+                    </div>
+
+                    <!-- logo Layer -->
+                    <div class="col-lg-4 text-center">
+                        <a class="logo" th:href="@{/}" th:text="#{shopping.logo}"></a>
+                    </div>
+
+                    <!-- userinfo Layer -->
+                    <div class="col-lg-4 header-mt">
+                        <ul class="user-panel">
+                        	<th:block th:if="${session.userId == null}">
+	                            <li><a th:href="@{/login}">로그인</a></li>
+	                            <li><a th:href="@{/signup}">회원가입</a></li>
+	                        </th:block>
+	                        <th:block th:unless="${session.userId == null}">
+	                            <li><a href="#">MyPage</a></li>
+	                            <li>
+	                                <a href="#">
+	                                    <span>0</span>
+	                                    <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+	                                </a>
+	                            </li>
+	                            <li>
+	                                <a href="#">
+	                                    <span>0</span>
+	                                    <i class="fa fa-heart" aria-hidden="true"></i>
+	                                </a>
+	                            </li>
+	                    	</th:block>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="container">
+                <div class="row">
+                    <ul class="main-menu">
+                        <li><a href="#">
+                            <span class="menu-eng">BEST</span>
+                            <span class="menu-kor">베스트</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="menu-eng">OUTER</span>
+                            <span class="menu-kor">아우터</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="menu-eng">TEE</span>
+                            <span class="menu-kor">티셔츠</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="menu-eng">SHIRT</span>
+                            <span class="menu-kor">셔츠</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="menu-eng">PANTS</span>
+                            <span class="menu-kor">바지</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="menu-eng">TRAINING</span>
+                            <span class="menu-kor">트레이닝</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="menu-eng">SHOES</span>
+                            <span class="menu-kor">신발</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="menu-eng">ACC</span>
+                            <span class="menu-kor">악세사리</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>                
+        </div>
+    </header>
+    <!-- Header Section -->
+    
+    <!--====== Javascripts & Jquery ======-->
+    <script th:src="@{/assets/jquery/jquery-3.2.1.min.js}"></script>
+	<script th:src="@{/js/common.js}"></script>
+</body>
+</html>

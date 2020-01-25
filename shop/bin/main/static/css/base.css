@@ -1,0 +1,67 @@
+/*------------------
+  Base.css
+---------------------*/
+html,
+body {
+	height: 100%;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	color: #111111;
+	font-weight: 600;
+}
+
+h1 {font-size: 70px;}
+h2 {font-size: 36px;}
+h3 {font-size: 30px;}
+h4 {font-size: 24px;}
+h5 {font-size: 18px;}
+h6 {font-size: 16px;}
+
+p { font-size: 14px; color: #585858; line-height: 1.6;}
+
+img {max-width: 100%;}
+
+input:focus, select:focus,
+button:focus, textarea:focus {
+    outline: none;
+}
+
+
+a, a:hover, a:focus {
+	text-decoration: none;
+    outline: none;
+    color: #000;
+}
+
+ul, ol {
+	padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/*------------------
+  text setting
+---------------------*/
+
+.text-center{
+    text-align: center;
+}
+
+.text-gray{
+	color:#777;
+}
+
+/*------------------
+  div setting
+---------------------*/
+.col-mb-30{
+	margin-bottom: 30px;
+}
+
+.title{
+    text-align: center;
+    margin : 30px 0;
+}

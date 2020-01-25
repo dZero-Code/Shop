@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>쇼핑몰 이름</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/category.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <!-- Header Section -->
+    <header th:replace="/inc/header.html"></header>
+    <hr>
+
+    <!-- Category Section -->
+    <section class="category-section">
+        <div class="container">
+            <div class="title">
+                <h4>카테고리1</h4>
+            </div>
+            
+            <!-- Category Menu -->
+            <div class="row">
+                <ul class="category-menu">
+                    <li><a href="#"><span class="menu-eng">카테고리2-1</span></a></li>
+                    <li><a href="#"><span class="menu-eng">카테고리2-2</span></a></li>
+                    <li><a href="#"><span class="menu-eng">카테고리2-3</span></a></li>
+                    <li><a href="#"><span class="menu-eng">카테고리2-4</span></a></li>
+                    <li><a href="#"><span class="menu-eng">카테고리2-5</span></a></li>
+                    <li><a href="#"><span class="menu-eng">카테고리2-6</span></a></li>
+                    <li><a href="#"><span class="menu-eng">카테고리2-7</span></a></li>
+                    <li><a href="#"><span class="menu-eng">카테고리2-8</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <!-- product Items -->
+            <div class="row">
+                <div style="width:100%; margin:0 50px;">
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="product-item">
+                            <div class="item-pic">
+                                <img src="image/bg.jpg" alt="">
+                                <div class="item-easy">
+                                    
+                                </div>
+                            </div>
+                            <div class="item-opt">
+                                <span class="opt-option">New</span>
+                                <span class="opt-option">Hot</span>
+                                <span class="opt-option">Sale</span>
+                            </div>
+                            <div class="item-info">
+                                <span class="item-title">카라 장식의 플레어 라인 랩 원피스</span>
+                                <span class="item-content">[5cm기장추가](동화 속 신데렐라 드레스)</span>
+                                <br>
+                                <span class="item-price">70000</span>
+                                <span class="item-discount">68000</span>
+                                <span class="item-sale">10%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--====== Javascripts & Jquery ======-->
+    <script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/common.js"></script>
+</body>
+</html>

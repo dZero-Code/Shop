@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>쇼핑몰 이름</title>
+
+    <!-- css -->
+    <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css}" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/base.css}">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header-section">
+        <div class="container">
+            <div class="row">
+                <ul class="admin-menu">
+                    <li><a href="#"><span class="menu">회원관리</span></a></li>
+                    <li><a href="#"><span class="menu">상품관리</span></a></li>
+                    <li><a href="#"><span class="menu">주문관리</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section -->
+    <div class="container">
+        <h2>상품등록</h2>
+        <div class="row">
+            <form action="#" method="post" id="frm" enctype="multipart/form-data">
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input type="text" id="product_no" name="product_no" placeholder="상품번호"> 
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <select class="custom-select custom-select-sm" id="category1" name="category1">
+                        	<option th:each="category1 : ${category1List}" th:value="${category1}" th:text="${category1}">
+                        	</th:block>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <select class="custom-select custom-select-sm" id="category2" name="category2">
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input type="text" id="product_name" name="product_name" placeholder="상품이름" autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input type="number" id="product_price" name="product_rice" placeholder="상품가격" autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input type="radio" id="view_stat_y" name="view_stat">
+                        <label for="view_stat_y">상품진열</label>
+                        <input type="radio" id="view_stat_n" name="view_stat">
+                        <label for="view_stat_n">상품진열안함</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="photo" name="photo">
+                            <label class="custom-file-label" for="photo">Choose file</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <button type="submit" id="insert" class="sb-btn">상품추가</button>
+                    </div>
+                </div>
+            </form>			
+        </div>
+        <div class="col-sm line">
+            <img id="uploadImg"/>
+        </div>
+    </div>
+
+	<!-- 전처리 -->
+    <script th:inline="javascript">
+    	/*<![CDATA[*/
+    		var category = /*[[${categoryList}]]*/;
+    	/*]]*/
+    </script>
+    <!--====== Javascripts & Jquery ======-->
+    <script th:src="@{/assets/jquery/jquery-3.2.1.min.js}"></script>
+    <script th:src="@{/js/product.js}"></script>
+</body>
+</html>
