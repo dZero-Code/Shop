@@ -25,7 +25,123 @@
 				color
 			FROM
 				color
+			ORDER BY
+				color_code ASC
 		]]>
 	</select>
 
+	<!-- 상품 추가 -->
+	<insert id="insertProduct" parameterType="kr.co.shop.shop.dto.ProductDto">
+		<![CDATA[
+			INSERT INTO product(
+				product_no,
+				category_code,
+				product_name,
+				product_price,
+				product_sale,
+				status,
+				created_datetime
+			)VALUES(
+				#{productNo},
+				#{categoryCode},
+				#{productName},
+				#{productPrice},
+				#{productSale},
+				#{status},
+				NOW()
+			);
+		]]>
+	</insert>
+	
+	<!-- 상품 사진 추가 -->
+	<insert id="insertProductPhoto" parameterType="kr.co.shop.shop.dto.ProductPhotoDto">
+		<![CDATA[
+			INSERT INTO product_photo(
+				product_no,
+				photo_name,
+				photo_path,
+				reg_place
+			)VALUES(
+				#{productNo},
+				#{photoName},
+				#{photoPath},
+				#{regPlace}
+			);
+		]]>
+	</insert>
+	
+	<!-- 상품 전체 갯수 조회 -->
+	<select id="countProductAll" resultType="int">
+		<![CDATA[
+			SELECT
+				count(product_no)
+			FROM
+				product
+		]]>
+	</select>
+	
+	<!-- 상품 전체 조회 -->
+	<select id="selectProductAll" parameterType="map" resultType="kr.co.shop.shop.dto.ProductDto">
+		<![CDATA[
+			SELECT
+				product_no,
+				category_code,
+				product_name,
+				product_price,
+				product_sale,
+				hit_cnt,
+				status,
+				created_datetime
+			FROM
+				product
+			ORDER BY
+				created_datetime DESC, 
+				product_no ASC
+			LIMIT
+				#{start},
+				#{end}
+		]]>
+	</select>
+	
+	<!-- 상품 옵션 조회 -->
+	<select id="selectProductOpt" parameterType="string" resultType="kr.co.shop.shop.dto.ProductOptDto">
+		<![CDATA[
+			SELECT
+				product_code,
+				product_no,
+				product_size,
+				color.color AS product_color,
+				inventory,
+				surcharge
+			FROM
+				product_opt1
+			INNER JOIN
+				color
+			ON
+				product_opt1.product_color = color.color_code
+			WHERE
+				product_no = #{product_no}
+		]]>
+	</select>
+	
+	<!-- 상품 옵션 추가 -->
+	<insert id="insertProductOpt" parameterType="kr.co.shop.shop.dto.ProductOptDto">
+		<![CDATA[
+			INSERT INTO product_opt1(
+				product_code,
+				product_no,
+				product_size,
+				product_color,
+				inventory,
+				surcharge
+			)VALUES(
+				#{productCode},
+				#{productNo},
+				#{productSize},
+				#{productColor},
+				#{inventory},
+				#{surcharge}
+			);
+		]]>
+	</insert>
 </mapper>

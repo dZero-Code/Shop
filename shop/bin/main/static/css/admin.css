@@ -1,0 +1,54 @@
+.body-section{
+	height: 100%;	
+}
+
+/*------------------
+  Header-Menu
+---------------------*/
+.admin-menu{
+	width: 100%;
+	height: 40px;
+	background: #000;
+	text-align: center;
+}
+
+.admin-menu .admin-logo{
+	width: 150px;
+	font-size: 18px;
+    margin: 6px;
+    color: #fff;
+}
+
+.admin-menu li{
+	float: left;
+    margin: 10px;
+}
+
+.admin-menu li a{
+	font-size: 14px;
+	color: #fff;	
+}
+
+/*------------------
+  Nav-Menu
+---------------------*/
+.nav-section{
+	float:left;
+	width:150px;
+	height: 100%;
+	background:#ddd;
+}
+
+.nav-section .nav-menu .menu{
+	padding: 10px;
+	border-bottom: 1px solid #aaa;
+}
+
+.nav-section .nav-menu .sub-menu{
+	margin-left: 10px;
+	list-style: circle;
+}
+
+.main-section{
+	
+}

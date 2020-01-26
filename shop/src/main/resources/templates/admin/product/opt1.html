@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>쇼핑몰 이름</title>
+
+    <!-- css -->
+    <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css}" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/base.css}">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header-section">
+        <div class="container-fluid">
+            <div class="row">
+                <ul class="admin-menu">
+                	<li class="admin-logo">관리자 페이지</li>
+                    <li><a href="#">회원관리</a></li>
+                    <li><a href="#">상품관리</a></li>
+                    <li><a href="#">주문관리</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Body Section -->
+    <section class="body-section">
+    	<!-- Nav Menu -->
+       	<div class="nav-section">
+       		<ul class="nav-menu">
+       			<li class="menu"><a href="#">회원관리</a>
+       				<ul class="sub-menu">
+						<li><a href="#">회원목록</a></li>
+					</ul>
+       			</li>
+       			<li class="menu"><a href="#">상품관리</a>
+       				<ul class="sub-menu">
+						<li><a href="#">상품목록</a></li>
+					</ul>
+				</li>
+       			<li class="menu"><a href="#">주문관리</a></li>
+       		</ul>
+       	</div>
+       	
+       	<!-- Main Scction -->
+       	<div class="main-section">
+			<div class="container">
+				<span th:text="|${productNo}의 옵션|"></span><hr>
+				<div class="row">
+					<div class="col-sm">
+						<form action="/admin/product/opt" method="post" id="frm">
+							<div class="form-row">
+								<input type="hidden" name="productNo" th:value="${productNo }">
+								<div class="form-group col-md-2">
+									<input type="text" id="productCode" name="productCode" placeholder="상품코드" autocomplete="off">
+								</div>
+								<div class="form-group col-md-1">
+									<input type="text" id="productSize" name="productSize" placeholder="사이즈" autocomplete="off">
+								</div>
+								<div class="form-group col-md-2">
+									<select class="custom-select custom-select-sm" id="productColor" name="productColor">
+			                        	<option th:each="color : ${colorList}" th:value="${color.getColorCode()}" th:text="${color.getColor()}"></option>
+			                        </select>
+						        </div>
+								<div class="form-group col-md-1">
+									<input type="number" id="inventory" name="inventory" placeholder="재고량" autocomplete="off">
+								</div>
+								<div class="form-group col-md-2">
+									<input type="number" id="surcharge" name="surcharge" placeholder="추가비용" autocomplete="off">
+								</div>
+						
+								<div class="form-group col-md-3">
+									<button id="optAdd" class="opt-btn">옵션추가</button>
+								</div>
+							</div>
+						</form><br>
+						
+						<div th:if="${productOptList.isEmpty()}">
+							옵션을 등록해주세요.
+						</div>
+						<div th:unless="${productOptList.isEmpty()}">
+							<th:block th:each="p : ${productOptList}">
+								<form action="/admin/product/updateOpt" method="post">
+									<div class="form-row">
+										<input type="hidden" name="proiductNo" th:value="${p.getProductNo()}">
+										<div class="form-group col-md-2">
+											<input type="text" id="productCode" name="productCode" th:value="${p.getProductCode()}" readonly="readonly" placeholder="상품코드" autocomplete="off">
+										</div>
+										<div class="form-group col-md-1">
+											<input type="text" id="productSize" name="productSize" th:value="${p.getProductSize()}" readonly="readonly" placeholder="사이즈" autocomplete="off">
+										</div>
+										<div class="form-group col-md-2">
+											<input type="text" id="productColor" name="productColor" th:value="${p.getProductColor()}" readonly="readonly"  placeholder="색상" autocomplete="off">
+										</div>
+										<div class="form-group col-md-1">
+											<input type="number" id="inventory" name="inventory" th:value="${p.getInventory()}" readonly="readonly" placeholder="재고량" autocomplete="off">
+										</div>
+										<div class="form-group col-md-2">
+											<input type="number" id="surcharge" name="surcharge" th:value="${p.getSurcharge()}" readonly="readonly" placeholder="추가비용" autocomplete="off">
+										</div>
+										<div class="form-group col-md-3">
+											<button class="optUpdate">수정</button>
+											<button class="optDelete">삭제</button>
+										</div>
+									</div>
+								</form>
+							</th:block>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+    <!--====== Javascripts & Jquery ======-->
+    <script th:src="@{/assets/jquery/jquery-3.2.1.min.js}"></script>
+    <script th:src="@{/js/product.js}"></script>
+</body>
+</html>
